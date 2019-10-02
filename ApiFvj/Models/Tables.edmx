@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="fvj_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="fvj_dbModelStoreContainer">
+    <EntitySet Name="Users" EntityType="fvj_dbModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leads" EntityType="fvj_dbModel.Store.Leads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="fvj_dbModel.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UsersLead" Association="fvj_dbModel.Store.UsersLead">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Lead" EntitySet="Leads" />
+    </AssociationSet>
+    <AssociationSet Name="UsersComment" Association="fvj_dbModel.Store.UsersComment">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="LeadComment" Association="fvj_dbModel.Store.LeadComment">
+      <End Role="Lead" EntitySet="Leads" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="active" Type="int" Nullable="false" />
+    <Property Name="createdat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Leads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsersId" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="numberphone" Type="nvarchar" Nullable="false" MaxLength="11" />
+    <Property Name="desiredcourse" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="town" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="adress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="active" Type="int" Nullable="false" />
+    <Property Name="createdat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsersId" Type="int" Nullable="false" />
+    <Property Name="LeadId" Type="int" Nullable="false" />
+    <Property Name="text" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="createdat" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="UsersLead">
+    <End Role="Users" Type="fvj_dbModel.Store.Users" Multiplicity="1" />
+    <End Role="Lead" Type="fvj_dbModel.Store.Leads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lead">
+        <PropertyRef Name="UsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersComment">
+    <End Role="Users" Type="fvj_dbModel.Store.Users" Multiplicity="1" />
+    <End Role="Comment" Type="fvj_dbModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LeadComment">
+    <End Role="Lead" Type="fvj_dbModel.Store.Leads" Multiplicity="1" />
+    <End Role="Comment" Type="fvj_dbModel.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lead">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="LeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fvj_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="StringConnection" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Users" EntityType="fvj_dbModel.Users" />
+          <EntitySet Name="Leads" EntityType="fvj_dbModel.Lead" />
+          <EntitySet Name="Comments" EntityType="fvj_dbModel.Comment" />
+          <AssociationSet Name="UsersLead" Association="fvj_dbModel.UsersLead">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Lead" EntitySet="Leads" />
+          </AssociationSet>
+          <AssociationSet Name="UsersComment" Association="fvj_dbModel.UsersComment">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="LeadComment" Association="fvj_dbModel.LeadComment">
+            <End Role="Lead" EntitySet="Leads" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="active" Type="Int32" Nullable="false" />
+          <Property Name="createdat" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Lead" Relationship="fvj_dbModel.UsersLead" FromRole="Users" ToRole="Lead" />
+          <NavigationProperty Name="Comment" Relationship="fvj_dbModel.UsersComment" FromRole="Users" ToRole="Comment" />
+        </EntityType>
+        <EntityType Name="Lead">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="fvj_dbModel.UsersLead" FromRole="Lead" ToRole="Users" />
+          <Property Name="UsersId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="numberphone" Type="String" Nullable="false" MaxLength="11" />
+          <Property Name="desiredcourse" Type="String" Nullable="false" MaxLength="25" />
+          <NavigationProperty Name="Comment" Relationship="fvj_dbModel.LeadComment" FromRole="Lead" ToRole="Comment" />
+          <Property Name="town" Type="String" Nullable="false" />
+          <Property Name="adress" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="active" Type="Int32" Nullable="false" />
+          <Property Name="createdat" Type="DateTime" Nullable="false" />
+          </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="fvj_dbModel.UsersComment" FromRole="Comment" ToRole="Users" />
+          <Property Name="UsersId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Lead" Relationship="fvj_dbModel.LeadComment" FromRole="Comment" ToRole="Lead" />
+          <Property Name="LeadId" Type="Int32" Nullable="false" />
+          <Property Name="text" Type="String" Nullable="false" MaxLength="150" />
+          <Property Name="createdat" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <Association Name="UsersLead">
+          <End Type="fvj_dbModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="fvj_dbModel.Lead" Role="Lead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lead">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsersComment">
+          <End Type="fvj_dbModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="fvj_dbModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="UsersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LeadComment">
+          <End Type="fvj_dbModel.Lead" Role="Lead" Multiplicity="1" />
+          <End Type="fvj_dbModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lead">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="LeadId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fvj_dbModelStoreContainer" CdmEntityContainer="StringConnection">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(fvj_dbModel.Users)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leads">
+      <EntityTypeMapping TypeName="IsTypeOf(fvj_dbModel.Lead)">
+        <MappingFragment StoreEntitySet="Leads">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="numberphone" ColumnName="numberphone" />
+          <ScalarProperty Name="desiredcourse" ColumnName="desiredcourse" />
+          <ScalarProperty Name="town" ColumnName="town" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(fvj_dbModel.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UsersId" ColumnName="UsersId" />
+          <ScalarProperty Name="LeadId" ColumnName="LeadId" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="createdat" ColumnName="createdat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
