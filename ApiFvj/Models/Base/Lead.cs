@@ -11,7 +11,8 @@ namespace ApiFvj.Models.Base
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Lead : BaseEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +22,38 @@ namespace ApiFvj.Models.Base
         }
     
         //public int Id { get; set; }
-        public int UserId { get; set; }
+        [Required]
+        public int? UserId { get; set; }
+
+        [Required]
+        [StringLength(80, MinimumLength =3)]
+        [RegularExpression("/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi")]
         public string name { get; set; }
+
+        [Required]
+        [StringLength(80, MinimumLength =15)]
         public string email { get; set; }
+
+        [Required]
+        [StringLength(11)]
         public string numberphone { get; set; }
+
+        [Required]
         public string desiredcourse { get; set; }
+
+        [Required]
+        [StringLength(20,MinimumLength =2)]
         public string town { get; set; }
+
+        [Required]
+        [StringLength(80, MinimumLength = 5)]
         public string address { get; set; }
+
+        [Required]
+        [Range(0, 1)]
         public int active { get; set; }
+
+        [Required]
         public System.DateTime createdat { get; set; }
     
         public virtual User User { get; set; }

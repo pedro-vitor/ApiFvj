@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiFvj.Fiilters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -9,6 +10,8 @@ namespace ApiFvj
     {
         public static void Register(HttpConfiguration config)
         {
+            config.Filters.Add(new ValidateModelState());
+
             // Web API configuration and services
 
             // Web API routes
@@ -19,6 +22,7 @@ namespace ApiFvj
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
         }
     }
 }

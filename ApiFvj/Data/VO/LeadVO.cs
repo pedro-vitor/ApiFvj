@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,14 +10,37 @@ namespace ApiFvj.Data.VO
     {
         public int Id { get; set; }
         public int ExternId { get; set; }
-        public int UserId { get; set; }
+
+        [Required]
+        public int? UserId { get; set; }
+
+        [Required]
+        [RegularExpression("/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi")]
         public string name { get; set; }
+
+        [Required]
+        [MaxLength(11)]
         public string numberphone { get; set; }
+
+        [Required]
         public string desiredcourse { get; set; }
+
+        [Required]
+        [StringLength(20, MinimumLength = 2)]
         public string town { get; set; }
+
+        [Required]
+        [StringLength(80, MinimumLength = 5)]
         public string address { get; set; }
+
+        [Required]
+        [Range(0, 1)]
         public string email { get; set; }
+
+        [Required]
+        [Range(0, 1)]
         public int active { get; set; }
+
         public System.DateTime createdat { get; set; }
         public int Updated { get; set; }
     }

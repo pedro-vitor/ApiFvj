@@ -1,6 +1,7 @@
 ﻿using ApiFvj.Business;
 using ApiFvj.Business.Implamentation;
 using ApiFvj.Data.VO;
+using ApiFvj.Fiilters;
 using ApiFvj.Models;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -34,6 +35,7 @@ namespace ApiFvj.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [ValidateModelState]
         public IHttpActionResult Post([FromBody] List<CommentVO> comment)
         {
             if (comment == null) return BadRequest();

@@ -150,6 +150,7 @@
     <Compile Include="Data\VO\CommentVO.cs" />
     <Compile Include="Data\VO\LeadVO.cs" />
     <Compile Include="Data\VO\UserVO.cs" />
+    <Compile Include="Fiilters\ValidateModelState.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
