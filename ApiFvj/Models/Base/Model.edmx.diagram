@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e187953bc89c4b4990d6bef17ec3b165" Name="Diagram1" >
+        <EntityTypeShape EntityType="fvj_dbModel.User" Width="1.5" PointX="2.125" PointY="1.875" />
+        <EntityTypeShape EntityType="fvj_dbModel.Lead" Width="1.5" PointX="6" PointY="0.5" />
+        <EntityTypeShape EntityType="fvj_dbModel.Comment" Width="1.5" PointX="5.875" PointY="4.375" />
+        <AssociationConnector Association="fvj_dbModel.UserLead" />
+        <AssociationConnector Association="fvj_dbModel.UserComment" />
+        <AssociationConnector Association="fvj_dbModel.LeadComment" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

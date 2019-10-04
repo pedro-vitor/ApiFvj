@@ -1,27 +1,37 @@
-﻿using System.Collections.Generic;
-using ApiFvj.Data.Converters;
+﻿using ApiFvj.Data.Converters;
 using ApiFvj.Data.VO;
-using ApiFvj.Models;
+using ApiFvj.Models.Base;
 using ApiFvj.Repository.Generic;
+using System.Collections.Generic;
 
 namespace ApiFvj.Business.Implamentation
 {
     public class LeadBusinessImpl : ILeadBusiness
     {
         private IRepository<Lead> _repository;
-        private readonly LeadConverter _converter;
+        private readonly LeadConverter _converter; 
+        private List<LeadVO> idList;
 
         public LeadBusinessImpl()
         {
             _repository = new GenericRepository<Lead>();
             _converter = new LeadConverter();
+            idList = new List<LeadVO>();
         }
 
-        public LeadVO Create(LeadVO item)
+        public List<LeadVO> Create(List<LeadVO> item)
         {
-            var leadEntity = _converter.Parse(item);
-            leadEntity = _repository.Create(leadEntity);
-            return _converter.Parse(leadEntity);
+            foreach (LeadVO lead in item)
+            {
+                var leadEntity = _converter.Parse(lead);
+                var result = _repository.Create(leadEntity);
+
+                if (result != null)
+                {
+                    idList.Add(_converter.ParseToCreate(result,lead.Id));
+                }
+            }
+            return idList;
         }
 
         public LeadVO FindById(int Id)
@@ -34,11 +44,19 @@ namespace ApiFvj.Business.Implamentation
             return _converter.Parse(_repository.FindAll());
         }
 
-        public LeadVO Update(LeadVO item)
+        public List<LeadVO> Update(List<LeadVO> item)
         {
-            var leadEntity = _converter.Parse(item);
-            leadEntity = _repository.Update(leadEntity);
-            return _converter.Parse(leadEntity);
+            foreach (LeadVO lead in item)
+            {
+                var leadEntity = _converter.Parse(lead);
+                var result = _repository.Update(leadEntity);
+
+                if (result != null)
+                {
+                    idList.Add(_converter.ParseToCreate(result, lead.Id));
+                }
+            }
+            return idList;
         }
 
         public void Delete(int id)

@@ -1,14 +1,15 @@
 ﻿using ApiFvj.Data.VO;
+using ApiFvj.Models;
 using System.Collections.Generic;
 
 namespace ApiFvj.Business
 {
     public interface ICommentBusiness
     {
-        CommentVO Create(CommentVO item);
+        List<CommentVO> Create(List<CommentVO> item);
         CommentVO FindById(int Id);
         List<CommentVO> FindAll();
-        CommentVO Update(CommentVO item);
+        List<CommentVO> Update(List<CommentVO> item);
         void Delete(int id);
 
         bool Exist(int id);

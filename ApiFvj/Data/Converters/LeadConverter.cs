@@ -1,27 +1,25 @@
 ﻿using ApiFvj.Data.Converter;
 using ApiFvj.Data.VO;
-using ApiFvj.Models;
-using System;
+using ApiFvj.Models.Base;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ApiFvj.Data.Converters
 {
-    public class LeadConverter : IParse<LeadVO, Lead>, IParse<Lead, LeadVO>
+    public class LeadConverter : IParser<LeadVO, Lead>, IParser<Lead, LeadVO>
     {
         public Lead Parse(LeadVO origin)
         {
             if (origin == null) return new Lead();
             return new Lead()
             {
-                Id = origin.Id,
-                UsersId = origin.UsersId,
+                Id = origin.ExternId,
+                UserId = origin.UserId,
                 name = origin.name,
                 numberphone = origin.numberphone,
                 desiredcourse = origin.desiredcourse,
                 town = origin.town,
-                adress = origin.adress,
+                address = origin.address,
                 email = origin.email,
                 active = origin.active,
                 createdat = origin.createdat
@@ -39,13 +37,32 @@ namespace ApiFvj.Data.Converters
             if (origin == null) return new LeadVO();
             return new LeadVO()
             {
-                Id = origin.Id,
-                UsersId = origin.UsersId,
+                ExternId = origin.Id,
+                UserId = origin.UserId,
                 name = origin.name,
                 numberphone = origin.numberphone,
                 desiredcourse = origin.desiredcourse,
                 town = origin.town,
-                adress = origin.adress,
+                address = origin.address,
+                email = origin.email,
+                active = origin.active,
+                createdat = origin.createdat
+            };
+        }
+
+        public LeadVO ParseToCreate(Lead origin, int id)
+        {
+            if (origin == null) return new LeadVO();
+            return new LeadVO()
+            {
+                Id = id,
+                ExternId = origin.Id,
+                UserId = origin.UserId,
+                name = origin.name,
+                numberphone = origin.numberphone,
+                desiredcourse = origin.desiredcourse,
+                town = origin.town,
+                address = origin.address,
                 email = origin.email,
                 active = origin.active,
                 createdat = origin.createdat

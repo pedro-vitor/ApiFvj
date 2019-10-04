@@ -7,21 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiFvj.Models
+namespace ApiFvj.Models.Base
 {
-    using ApiFvj.Models.Base;
     using System;
     using System.Collections.Generic;
     
     public partial class Comment : BaseEntity
     {
-       // public int Id { get; set; }
-        public int UsersId { get; set; }
+        //public int Id { get; set; }
+        public int UserId { get; set; }
         public int LeadId { get; set; }
         public string text { get; set; }
         public System.DateTime createdat { get; set; }
     
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
         public virtual Lead Lead { get; set; }
     }
 }

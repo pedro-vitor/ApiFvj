@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiFvj.Models
+namespace ApiFvj.Models.Base
 {
     using System;
     using System.Data.Entity;
@@ -25,7 +25,7 @@ namespace ApiFvj.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Lead> Leads { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
     }

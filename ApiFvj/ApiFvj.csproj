@@ -117,16 +117,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\Tables.Context.tt">
+    <Content Include="Models\Base\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Tables.edmx</DependentUpon>
-      <LastGenOutput>Tables.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Tables.edmx.sql" />
-    <Content Include="Models\Tables.tt">
+    <Content Include="Models\Base\Model.edmx.sql" />
+    <Content Include="Models\Base\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Tables.edmx</DependentUpon>
-      <LastGenOutput>Tables.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -134,10 +134,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Business\ICommentBusiness.cs" />
     <Compile Include="Business\ILeadBusiness.cs" />
+    <Compile Include="Business\ILoginBusiness.cs" />
     <Compile Include="Business\Implamentation\CommentBusinessImpl.cs" />
     <Compile Include="Business\Implamentation\LeadBusinessImpl.cs" />
+    <Compile Include="Business\Implamentation\LoginBusinessImpl.cs" />
     <Compile Include="Business\Implamentation\UserBusinessImpl.cs" />
     <Compile Include="Business\IUserBusiness.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\LeadController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Converters\CommentConverter.cs" />
     <Compile Include="Data\Converters\LeadConverter.cs" />
     <Compile Include="Data\Converters\UserConverter.cs" />
@@ -149,41 +154,45 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Base\BaseEntity.cs" />
-    <Compile Include="Models\Comment.cs">
-      <DependentUpon>Tables.tt</DependentUpon>
+    <Compile Include="Models\Base\Comment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Lead.cs">
-      <DependentUpon>Tables.tt</DependentUpon>
+    <Compile Include="Models\Base\Lead.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tables.Context.cs">
+    <Compile Include="Models\Base\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Tables.Context.tt</DependentUpon>
+      <DependentUpon>Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tables.cs">
+    <Compile Include="Models\Base\Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Tables.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Tables.Designer.cs">
+    <Compile Include="Models\Base\Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Tables.edmx</DependentUpon>
+      <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Users.cs">
-      <DependentUpon>Tables.tt</DependentUpon>
+    <Compile Include="Models\Base\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Generic\GenericRepository.cs" />
     <Compile Include="Repository\Generic\IRepository.cs" />
+    <Compile Include="Repository\ILoginRepository.cs" />
+    <Compile Include="Repository\Implamentation\LoginRepositoryImpl.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\Tables.edmx">
+    <EntityDeploy Include="Models\Base\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Tables.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Tables.edmx.diagram">
-      <DependentUpon>Tables.edmx</DependentUpon>
+    <Content Include="Models\Base\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
@@ -195,7 +204,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

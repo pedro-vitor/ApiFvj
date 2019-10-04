@@ -1,22 +1,20 @@
 ﻿using ApiFvj.Data.Converter;
 using ApiFvj.Data.VO;
-using ApiFvj.Models;
-using System;
+using ApiFvj.Models.Base;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ApiFvj.Data.Converters
 {
-    public class CommentConverter : IParse<CommentVO, Comment>, IParse<Comment, CommentVO>
+    public class CommentConverter : IParser<CommentVO, Comment>, IParser<Comment, CommentVO>
     {
         public Comment Parse(CommentVO origin)
         {
             if (origin == null) return new Comment();
             return new Comment()
             {
-                Id = origin.Id,
-                UsersId = origin.UsersId,
+                Id = origin.ExternId,
+                UserId = origin.UserId,
                 LeadId = origin.LeadId,
                 text = origin.text,
                 createdat = origin.createdat
@@ -34,11 +32,25 @@ namespace ApiFvj.Data.Converters
             if (origin == null) return new CommentVO();
             return new CommentVO()
             {
-                Id = origin.Id,
-                UsersId = origin.UsersId,
+                ExternId = origin.Id,
+                UserId = origin.UserId,
                 LeadId = origin.LeadId,
                 text = origin.text,
-                createdat = origin.createdat
+                createdat = origin.createdat,
+            };
+        }
+
+        public CommentVO ParseToCreate(Comment origin, int id)
+        {
+            if (origin == null) return new CommentVO();
+            return new CommentVO()
+            {
+                Id = id,
+                ExternId = origin.Id,
+                UserId = origin.UserId,
+                LeadId = origin.LeadId,
+                text = origin.text,
+                createdat = origin.createdat,
             };
         }
 

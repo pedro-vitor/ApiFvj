@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ApiFvj.Data.Converter
 {
-    public interface IParse<O, D>
-    {
-        D Parse(O origin);
-        List<D> Parse(List<O> origin);
-    }
+    public interface IParser<O, D>
+     {
+            D Parse(O origin);
+            List<D> Parse(List<O> origin);
+     }
+    
 }

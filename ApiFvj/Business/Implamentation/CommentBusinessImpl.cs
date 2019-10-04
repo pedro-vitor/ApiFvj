@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using ApiFvj.Data.Converters;
+﻿using ApiFvj.Data.Converters;
 using ApiFvj.Data.VO;
-using ApiFvj.Models;
+using ApiFvj.Models.Base;
 using ApiFvj.Repository.Generic;
+using System.Collections.Generic;
 
 namespace ApiFvj.Business.Implamentation
 {
@@ -10,18 +10,27 @@ namespace ApiFvj.Business.Implamentation
     {
         private IRepository<Comment> _repository;
         private readonly CommentConverter _converter;
+        private List<CommentVO> idList;
 
         public CommentBusinessImpl()
         {
             _repository = new GenericRepository<Comment>();
             _converter = new CommentConverter();
+            idList = new List<CommentVO>();
         }
 
-        public CommentVO Create(CommentVO item)
+        public List<CommentVO> Create(List<CommentVO> item)
         {
-            var userEntity = _converter.Parse(item);
-            userEntity = _repository.Create(userEntity);
-            return _converter.Parse(userEntity);
+            foreach (CommentVO comment in item)
+            {
+                var leadEntity = _converter.Parse(comment);
+                var result = _repository.Create(leadEntity);
+                if (result != null)
+                {
+                    idList.Add(_converter.ParseToCreate(result,comment.Id));
+                }
+            }
+            return idList;
         }
 
         public void Delete(int id)
@@ -44,11 +53,18 @@ namespace ApiFvj.Business.Implamentation
             return _converter.Parse(_repository.FindById(Id));
         }
 
-        public CommentVO Update(CommentVO item)
+        public List<CommentVO> Update(List<CommentVO> item)
         {
-            var userEntity = _converter.Parse(item);
-            userEntity = _repository.Update(userEntity);
-            return _converter.Parse(userEntity);
+            foreach (CommentVO comment in item)
+            {
+                var leadEntity = _converter.Parse(comment);
+                var result = _repository.Update(leadEntity);
+                if (result != null)
+                {
+                    idList.Add(_converter.ParseToCreate(result, comment.Id));
+                }
+            }
+            return idList;
         }
     }
 }

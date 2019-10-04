@@ -7,32 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiFvj.Models
+namespace ApiFvj.Models.Base
 {
-    using ApiFvj.Models.Base;
     using System;
     using System.Collections.Generic;
     
-    public partial class Lead : BaseEntity
+    public partial class User : BaseEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Lead()
+        public User()
         {
+            this.Lead = new HashSet<Lead>();
             this.Comment = new HashSet<Comment>();
         }
     
-       // public int Id { get; set; }
-        public int UsersId { get; set; }
+        //public int Id { get; set; }
         public string name { get; set; }
-        public string numberphone { get; set; }
-        public string desiredcourse { get; set; }
-        public string town { get; set; }
-        public string adress { get; set; }
         public string email { get; set; }
+        public string password { get; set; }
         public int active { get; set; }
         public System.DateTime createdat { get; set; }
     
-        public virtual Users Users { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Lead> Lead { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comment { get; set; }
     }
