@@ -24,11 +24,10 @@ namespace ApiFvj.Models.Base
     
         //public int Id { get; set; }
         [Required]
-        [RegularExpression("[0-9]")]
         public string name { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string email { get; set; }
 
         [Required]
@@ -40,7 +39,7 @@ namespace ApiFvj.Models.Base
         public int active { get; set; }
 
         [Required]
-        public System.DateTime createdat { get; set; }
+        public System.DateTime? createdat { get; set; }
 
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

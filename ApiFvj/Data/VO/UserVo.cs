@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ApiFvj.Data.VO
 {
@@ -12,11 +8,10 @@ namespace ApiFvj.Data.VO
         public int ExternId { get; set; }
 
         [Required]
-        [RegularExpression("[0-9]")]
         public string name { get; set; }
 
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string email { get; set; }
 
         [Required]
@@ -27,7 +22,8 @@ namespace ApiFvj.Data.VO
         [Range(0, 1)]
         public int active { get; set; }
 
-        public System.DateTime createdat { get; set; }
+        [Required]
+        public System.DateTime? createdat { get; set; }
         public int Updated { get; set; }
     }
 }

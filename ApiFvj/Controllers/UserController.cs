@@ -2,6 +2,7 @@
 using ApiFvj.Business.Implamentation;
 using ApiFvj.Data.VO;
 using ApiFvj.Models;
+using Swashbuckle.Swagger.Annotations;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -19,6 +20,10 @@ namespace ApiFvj.Controllers
 
         // GET api/<controller>
         [HttpGet]
+        [SwaggerResponse(200, Type = typeof(List<UserVO>))]
+        [SwaggerResponse(204)]
+        [SwaggerResponse(400)]
+        [SwaggerResponse(401)]
         public IHttpActionResult Get()
         {
             return Ok(_repository.FindAll());
@@ -27,6 +32,10 @@ namespace ApiFvj.Controllers
         // GET api/<controller>/5
         [HttpGet]
         [Route("{id}")]
+        [SwaggerResponse(200, Type = typeof(List<UserVO>))]
+        [SwaggerResponse(204)]
+        [SwaggerResponse(400)]
+        [SwaggerResponse(401)]
         public IHttpActionResult Get(int id)
         {
             return Ok(_repository.FindById(id));
@@ -34,6 +43,9 @@ namespace ApiFvj.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [SwaggerResponse(201, Type = typeof(List<UserVO>))]
+        [SwaggerResponse(400)]
+        [SwaggerResponse(401)]
         public IHttpActionResult Post([FromBody] List<UserVO> user)
         {
             if (user == null) return BadRequest();
@@ -42,6 +54,9 @@ namespace ApiFvj.Controllers
 
         // PUT api/<controller>/5
         [HttpPut]
+        [SwaggerResponse(202, Type = typeof(List<UserVO>))]
+        [SwaggerResponse(400)]
+        [SwaggerResponse(401)]
         public IHttpActionResult Put([FromBody]List<UserVO> user)
         {
             if (user != null) BadRequest();
@@ -51,6 +66,9 @@ namespace ApiFvj.Controllers
         // DELETE api/<controller>/5
         [HttpDelete]
         [Route("{id}")]
+        [SwaggerResponse(204)]
+        [SwaggerResponse(400)]
+        [SwaggerResponse(401)]
         public void Delete(int id)
         {
             _repository.Delete(id);
