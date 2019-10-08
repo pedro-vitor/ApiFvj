@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace ApiFvj.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/Comment")]
     public class CommentController : ApiController
     {

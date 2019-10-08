@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace ApiFvj.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/Lead")]
     public class LeadController : ApiController
     {
