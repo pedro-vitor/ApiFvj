@@ -15,14 +15,14 @@ namespace ApiFvj.Data.Converters
             {
                 Id = origin.ExternId,
                 UserId = origin.UserId,
-                name = origin.name,
-                numberphone = origin.numberphone,
-                desiredcourse = origin.desiredcourse,
-                town = origin.town,
-                address = origin.address,
-                email = origin.email,
-                active = origin.active,
-                createdat = origin.createdat
+                Name = origin.name,
+                Phone = origin.numberphone,
+                Course = origin.desiredcourse,
+                Town = origin.town,
+                Address = origin.address,
+                Email = origin.email,
+                Active = origin.active,
+                Createdat = origin.createdat
             };
         }
 
@@ -39,14 +39,14 @@ namespace ApiFvj.Data.Converters
             {
                 ExternId = origin.Id,
                 UserId = origin.UserId,
-                name = origin.name,
-                numberphone = origin.numberphone,
-                desiredcourse = origin.desiredcourse,
-                town = origin.town,
-                address = origin.address,
-                email = origin.email,
-                active = origin.active,
-                createdat = origin.createdat
+                name = origin.Name,
+                numberphone = origin.Phone,
+                desiredcourse = origin.Course,
+                town = origin.Town,
+                address = origin.Address,
+                email = origin.Email,
+                active = origin.Active,
+                createdat = origin.Createdat
             };
         }
 
@@ -58,14 +58,14 @@ namespace ApiFvj.Data.Converters
                 Id = id,
                 ExternId = origin.Id,
                 UserId = origin.UserId,
-                name = origin.name,
-                numberphone = origin.numberphone,
-                desiredcourse = origin.desiredcourse,
-                town = origin.town,
-                address = origin.address,
-                email = origin.email,
-                active = origin.active,
-                createdat = origin.createdat
+                name = origin.Name,
+                numberphone = origin.Phone,
+                desiredcourse = origin.Course,
+                town = origin.Town,
+                address = origin.Address,
+                email = origin.Email,
+                active = origin.Active,
+                createdat = origin.Createdat
             };
         }
 

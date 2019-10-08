@@ -9,7 +9,7 @@ namespace ApiFvj.Repository.Implamentation
 
         public User FindByLogin(string email, string password)
         {
-            return _context.Users.Where(x => x.email == email && x.password == password).FirstOrDefault();
+            return _context.Users.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
         }
 
     }

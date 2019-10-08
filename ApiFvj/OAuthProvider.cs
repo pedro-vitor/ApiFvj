@@ -23,7 +23,7 @@ namespace ApiFvj
                 {
                     List<Claim> claim = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, result.name),
+                        new Claim(ClaimTypes.Name, result.Name),
                         new Claim("UserId", result.Id.ToString())
                     };
                     ClaimsIdentity OAuthIdentity = new ClaimsIdentity(claim, Startup.OAuthOptions.AuthenticationType);

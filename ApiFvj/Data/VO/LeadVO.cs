@@ -12,7 +12,7 @@ namespace ApiFvj.Data.VO
         public int ExternId { get; set; }
 
         [Required]
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
         [RegularExpression("/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi")]

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/03/2019 17:06:05
+-- Date Created: 10/08/2019 13:29:36
 -- Generated from EDMX file: C:\Users\DAVI\Desktop\Projects\ApiFvj\ApiFvj\ApiFvj\Models\Base\Model.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,29 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UserLead]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Leads] DROP CONSTRAINT [FK_UserLead];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserComment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comments] DROP CONSTRAINT [FK_UserComment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_LeadComment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comments] DROP CONSTRAINT [FK_LeadComment];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[Leads]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Leads];
+GO
+IF OBJECT_ID(N'[dbo].[Comments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Comments];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -30,11 +48,11 @@ GO
 -- Creating table 'Users'
 CREATE TABLE [dbo].[Users] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [name] nvarchar(80)  NOT NULL,
-    [email] nvarchar(80)  NOT NULL,
-    [password] nvarchar(15)  NOT NULL,
-    [active] int  NOT NULL,
-    [createdat] datetime  NOT NULL
+    [Name] nvarchar(80)  NOT NULL,
+    [Email] nvarchar(80)  NOT NULL,
+    [Password] nvarchar(15)  NOT NULL,
+    [Active] int  NOT NULL,
+    [Createdat] datetime  NOT NULL
 );
 GO
 
@@ -42,14 +60,14 @@ GO
 CREATE TABLE [dbo].[Leads] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [UserId] int  NOT NULL,
-    [name] nvarchar(80)  NOT NULL,
-    [email] nvarchar(80)  NOT NULL,
-    [numberphone] nvarchar(11)  NOT NULL,
-    [desiredcourse] nvarchar(20)  NOT NULL,
-    [town] nvarchar(20)  NOT NULL,
-    [address] nvarchar(80)  NOT NULL,
-    [active] int  NOT NULL,
-    [createdat] datetime  NOT NULL
+    [Name] nvarchar(80)  NOT NULL,
+    [Email] nvarchar(80)  NOT NULL,
+    [Phone] nvarchar(11)  NOT NULL,
+    [Course] nvarchar(20)  NOT NULL,
+    [Town] nvarchar(20)  NOT NULL,
+    [Address] nvarchar(80)  NOT NULL,
+    [Active] int  NOT NULL,
+    [Createdat] datetime  NOT NULL
 );
 GO
 
@@ -58,8 +76,8 @@ CREATE TABLE [dbo].[Comments] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [UserId] int  NOT NULL,
     [LeadId] int  NOT NULL,
-    [text] nvarchar(150)  NOT NULL,
-    [createdat] datetime  NOT NULL
+    [Text] nvarchar(150)  NOT NULL,
+    [Createdat] datetime  NOT NULL
 );
 GO
 

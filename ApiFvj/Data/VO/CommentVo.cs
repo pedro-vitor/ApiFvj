@@ -12,10 +12,10 @@ namespace ApiFvj.Data.VO
         public int ExternId { get; set; }
 
         [Required]
-        public int? UserId { get; set; }
+        public int UserId { get; set; }
 
         [Required]
-        public int? LeadId { get; set; }
+        public int LeadId { get; set; }
 
         [Required]
         [StringLength(150, MinimumLength = 5)]

@@ -14,11 +14,11 @@ namespace ApiFvj.Data.Converters
             return new User()
             {
                 Id = origin.ExternId,
-                name = origin.name,
-                email = origin.email,
-                password = origin.password,
-                active = origin.active,
-                createdat = origin.createdat
+                Name = origin.name,
+                Email = origin.email,
+                Password = origin.password,
+                Active = origin.active,
+                Createdat = origin.createdat
             };
         }
 
@@ -34,11 +34,11 @@ namespace ApiFvj.Data.Converters
             return new UserVO()
             {
                 ExternId = origin.Id,
-                name = origin.name,
-                email = origin.email,
-                password = origin.password,
-                active = origin.active,
-                createdat = origin.createdat
+                name = origin.Name,
+                email = origin.Email,
+                password = origin.Password,
+                active = origin.Active,
+                createdat = origin.Createdat
             };
         }
 
@@ -49,11 +49,11 @@ namespace ApiFvj.Data.Converters
             {
                 Id = id,
                 ExternId = origin.Id,
-                name = origin.name,
-                email = origin.email,
-                password = origin.password,
-                active = origin.active,
-                createdat = origin.createdat
+                name = origin.Name,
+                email = origin.Email,
+                password = origin.Password,
+                active = origin.Active,
+                createdat = origin.Createdat
             };
         }
 

@@ -27,11 +27,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="active" Type="int" Nullable="false" />
-    <Property Name="createdat" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Active" Type="int" Nullable="false" />
+    <Property Name="Createdat" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Leads">
     <Key>
@@ -39,14 +39,14 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="numberphone" Type="nvarchar" Nullable="false" MaxLength="11" />
-    <Property Name="desiredcourse" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="town" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="active" Type="int" Nullable="false" />
-    <Property Name="createdat" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="11" />
+    <Property Name="Course" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Town" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="80" />
+    <Property Name="Active" Type="int" Nullable="false" />
+    <Property Name="Createdat" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Comments">
     <Key>
@@ -55,8 +55,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="LeadId" Type="int" Nullable="false" />
-    <Property Name="text" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="createdat" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Createdat" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="UserLead">
     <End Role="User" Type="fvj_dbModel.Store.Users" Multiplicity="1" />
@@ -120,11 +120,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="80" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="80" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="15" />
-          <Property Name="active" Type="Int32" Nullable="false" />
-          <Property Name="createdat" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
+          <Property Name="Createdat" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Lead" Relationship="fvj_dbModel.UserLead" FromRole="User" ToRole="Lead" />
           <NavigationProperty Name="Comment" Relationship="fvj_dbModel.UserComment" FromRole="User" ToRole="Comment" />
         </EntityType>
@@ -135,14 +135,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="User" Relationship="fvj_dbModel.UserLead" FromRole="Lead" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="80" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="80" />
-          <Property Name="numberphone" Type="String" Nullable="false" MaxLength="11" />
-          <Property Name="desiredcourse" Type="String" Nullable="false" MaxLength="20" />
-          <Property Name="town" Type="String" Nullable="false" MaxLength="20" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="80" />
-          <Property Name="active" Type="Int32" Nullable="false" />
-          <Property Name="createdat" Type="DateTime" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" />
+          <Property Name="Course" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Town" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="80" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
+          <Property Name="Createdat" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Comment" Relationship="fvj_dbModel.LeadComment" FromRole="Lead" ToRole="Comment" />
         </EntityType>
         <EntityType Name="Comment">
@@ -154,8 +154,8 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Lead" Relationship="fvj_dbModel.LeadComment" FromRole="Comment" ToRole="Lead" />
           <Property Name="LeadId" Type="Int32" Nullable="false" />
-          <Property Name="text" Type="String" Nullable="false" MaxLength="150" />
-          <Property Name="createdat" Type="DateTime" Nullable="false" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="150" />
+          <Property Name="Createdat" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="UserLead">
           <End Type="fvj_dbModel.User" Role="User" Multiplicity="1" />
@@ -203,11 +203,11 @@
       <EntityTypeMapping TypeName="IsTypeOf(fvj_dbModel.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Createdat" ColumnName="Createdat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -216,14 +216,14 @@
         <MappingFragment StoreEntitySet="Leads">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="numberphone" ColumnName="numberphone" />
-          <ScalarProperty Name="desiredcourse" ColumnName="desiredcourse" />
-          <ScalarProperty Name="town" ColumnName="town" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="active" ColumnName="active" />
-          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Createdat" ColumnName="Createdat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -233,8 +233,8 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="LeadId" ColumnName="LeadId" />
-          <ScalarProperty Name="text" ColumnName="text" />
-          <ScalarProperty Name="createdat" ColumnName="createdat" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Createdat" ColumnName="Createdat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

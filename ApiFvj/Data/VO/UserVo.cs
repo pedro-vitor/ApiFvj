@@ -23,7 +23,7 @@ namespace ApiFvj.Data.VO
         public int active { get; set; }
 
         [Required]
-        public System.DateTime? createdat { get; set; }
+        public System.DateTime createdat { get; set; }
         public int Updated { get; set; }
     }
 }
