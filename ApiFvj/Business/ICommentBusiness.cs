@@ -10,7 +10,7 @@ namespace ApiFvj.Business
         CommentVO FindById(int Id);
         List<CommentVO> FindAll();
         List<CommentVO> Update(List<CommentVO> item);
-        void Delete(int id);
+        void Delete(List<CommentVO> id);
 
         bool Exist(int id);
     }

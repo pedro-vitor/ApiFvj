@@ -13,7 +13,7 @@ namespace ApiFvj.Repository.Generic
         List<T> FindAll();
         T FindById(int Id);
         T Update(T item);
-        void Delete(int Id);
+        void Delete(T Id);
 
         bool Exist(int Id);
     }

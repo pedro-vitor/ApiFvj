@@ -10,7 +10,7 @@ namespace ApiFvj.Business
         UserVO FindById(int Id);
         List<UserVO> FindAll();
         List<UserVO> Update(List<UserVO> item);
-        void Delete(int id);
+        void Delete(List<UserVO> id);
 
         bool Exist(int id);
     }

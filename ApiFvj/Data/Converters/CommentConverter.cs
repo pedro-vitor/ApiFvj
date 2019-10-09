@@ -17,6 +17,7 @@ namespace ApiFvj.Data.Converters
                 UserId = origin.UserId,
                 LeadId = origin.LeadId,
                 Text = origin.text,
+                Active = origin.active,
                 Createdat = origin.createdat
             };
         }
@@ -36,6 +37,7 @@ namespace ApiFvj.Data.Converters
                 UserId = origin.UserId,
                 LeadId = origin.LeadId,
                 text = origin.Text,
+                active = origin.Active,
                 createdat = origin.Createdat,
             };
         }
@@ -50,6 +52,7 @@ namespace ApiFvj.Data.Converters
                 UserId = origin.UserId,
                 LeadId = origin.LeadId,
                 text = origin.Text,
+                active = origin.Active,
                 createdat = origin.Createdat,
             };
         }

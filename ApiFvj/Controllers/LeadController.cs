@@ -71,9 +71,9 @@ namespace ApiFvj.Controllers
         [SwaggerResponse(204)]
         [SwaggerResponse(400)]
         [SwaggerResponse(401)]
-        public void Delete(int id)
+        public void Delete(List<LeadVO> itens)
         {
-            _leadBusiness.Delete(id);
+            _leadBusiness.Delete(itens);
         }
     }
 }

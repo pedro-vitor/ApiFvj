@@ -15,7 +15,6 @@ namespace ApiFvj.Data.VO
         public int UserId { get; set; }
 
         [Required]
-        [RegularExpression("/\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi")]
         public string name { get; set; }
 
         [Required]
@@ -34,13 +33,14 @@ namespace ApiFvj.Data.VO
         public string address { get; set; }
 
         [Required]
-        [Range(0, 1)]
+        [EmailAddress]
         public string email { get; set; }
 
         [Required]
         [Range(0, 1)]
         public int active { get; set; }
 
+        [Required]
         public System.DateTime createdat { get; set; }
         public int Updated { get; set; }
     }

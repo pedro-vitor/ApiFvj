@@ -32,15 +32,15 @@ namespace ApiFvj.Repository.Generic
             return listT;
         }
 
-        public void Delete(int Id)
+        public void Delete(T item)
         {
-            var result = _dbSet.Where(x => x.Id == Id).FirstOrDefault();
+            var result = _dbSet.SingleOrDefault(p => p.Id == item.Id);
             try
             {
-                if (result != null) _dbSet.Remove(result);
+                _context.Entry(result).CurrentValues.SetValues(item);
                 _context.SaveChanges();
             }
-            catch { }
+            catch{}
         }
 
         public bool Exist(int Id)

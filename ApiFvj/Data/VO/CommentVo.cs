@@ -22,6 +22,10 @@ namespace ApiFvj.Data.VO
         public string text { get; set; }
 
         [Required]
+        [Range(0, 1)]
+        public int active { get; set; }
+
+        [Required]
         public System.DateTime createdat { get; set; }
         public int Updated { get; set; }
     }

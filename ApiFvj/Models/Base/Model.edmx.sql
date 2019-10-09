@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/08/2019 13:29:36
+-- Date Created: 10/09/2019 14:27:54
 -- Generated from EDMX file: C:\Users\DAVI\Desktop\Projects\ApiFvj\ApiFvj\ApiFvj\Models\Base\Model.edmx
 -- --------------------------------------------------
 
@@ -77,6 +77,7 @@ CREATE TABLE [dbo].[Comments] (
     [UserId] int  NOT NULL,
     [LeadId] int  NOT NULL,
     [Text] nvarchar(150)  NOT NULL,
+    [Active] int  NOT NULL,
     [Createdat] datetime  NOT NULL
 );
 GO

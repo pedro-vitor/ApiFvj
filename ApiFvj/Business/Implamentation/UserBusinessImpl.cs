@@ -34,9 +34,13 @@ namespace ApiFvj.Business.Implamentation
             return idList;
         }
 
-        public void Delete(int id)
+        public void Delete(List<UserVO> itens)
         {
-            _repository.Delete(id);
+            foreach (UserVO user in itens)
+            {
+                var userEntity = _converter.Parse(user);
+                _repository.Delete(userEntity);
+            }
         }
 
         public bool Exist(int id)
@@ -46,7 +50,16 @@ namespace ApiFvj.Business.Implamentation
 
         public List<UserVO> FindAll()
         {
-            return _converter.Parse(_repository.FindAll());
+            List<UserVO> listUsers = new List<UserVO>();
+            var leads = _converter.Parse(_repository.FindAll());
+            foreach (UserVO usr in leads)
+            {
+                if (usr.active != 0)
+                {
+                    listUsers.Add(usr);
+                }
+            }
+            return listUsers;
         }
 
         public UserVO FindById(int Id)

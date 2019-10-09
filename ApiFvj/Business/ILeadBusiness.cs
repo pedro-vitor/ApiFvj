@@ -10,7 +10,7 @@ namespace ApiFvj.Business
         LeadVO FindById(int Id);
         List<LeadVO> FindAll();
         List<LeadVO> Update(List<LeadVO> item);
-        void Delete(int id);
+        void Delete(List<LeadVO> id);
 
         bool Exist(int id);
     }

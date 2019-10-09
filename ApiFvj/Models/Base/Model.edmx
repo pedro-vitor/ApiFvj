@@ -56,6 +56,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="LeadId" Type="int" Nullable="false" />
     <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="Createdat" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="UserLead">
@@ -155,6 +156,7 @@
           <NavigationProperty Name="Lead" Relationship="fvj_dbModel.LeadComment" FromRole="Comment" ToRole="Lead" />
           <Property Name="LeadId" Type="Int32" Nullable="false" />
           <Property Name="Text" Type="String" Nullable="false" MaxLength="150" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
           <Property Name="Createdat" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="UserLead">
@@ -234,6 +236,7 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="LeadId" ColumnName="LeadId" />
           <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Createdat" ColumnName="Createdat" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -9,14 +9,20 @@ namespace ApiFvj.Business.Implamentation
     public class LeadBusinessImpl : ILeadBusiness
     {
         private IRepository<Lead> _repository;
-        private readonly LeadConverter _converter; 
-        private List<LeadVO> idList;
+        private IRepository<Comment> _repositoryComment;
+        private readonly LeadConverter _converter;
+        private readonly CommentConverter _converterComments;
+        private List<LeadVO> _idList;
+        private readonly ICommentBusiness _comments;
 
         public LeadBusinessImpl()
         {
-            _repository = new GenericRepository<Lead>();
-            _converter = new LeadConverter();
-            idList = new List<LeadVO>();
+            _repository         = new GenericRepository<Lead>();
+            _repositoryComment  = new GenericRepository<Comment>();
+            _converter          = new LeadConverter();
+            _converterComments  = new CommentConverter();
+            _idList             = new List<LeadVO>();
+            _comments           = new CommentBusinessImpl();
         }
 
         public List<LeadVO> Create(List<LeadVO> item)
@@ -28,10 +34,10 @@ namespace ApiFvj.Business.Implamentation
 
                 if (result != null)
                 {
-                    idList.Add(_converter.ParseToCreate(result,lead.Id));
+                    _idList.Add(_converter.ParseToCreate(result,lead.Id));
                 }
             }
-            return idList;
+            return _idList;
         }
 
         public LeadVO FindById(int Id)
@@ -41,7 +47,16 @@ namespace ApiFvj.Business.Implamentation
 
         public List<LeadVO> FindAll()
         {
-            return _converter.Parse(_repository.FindAll());
+            List<LeadVO> listLeads = new List<LeadVO>();
+            var leads = _converter.Parse(_repository.FindAll());
+            foreach (LeadVO lds in leads)
+            {
+                if (lds.active != 0)
+                {
+                    listLeads.Add(lds);
+                }
+            }
+            return listLeads;
         }
 
         public List<LeadVO> Update(List<LeadVO> item)
@@ -53,15 +68,25 @@ namespace ApiFvj.Business.Implamentation
 
                 if (result != null)
                 {
-                    idList.Add(_converter.ParseToCreate(result, lead.Id));
+                    _idList.Add(_converter.ParseToCreate(result, lead.Id));
                 }
             }
-            return idList;
+            return _idList;
         }
 
-        public void Delete(int id)
+        public void Delete(List<LeadVO> itens)
         {
-            _repository.Delete(id);
+            /*foreach (LeadVO lead in itens)
+            {
+                var leadEntity = _converter.Parse(lead);
+                var listComments = _comments.FindAll();
+                foreach (CommentVO cmm in listComments)
+                {
+                    _repositoryComment.Delete(_converterComments.Parse(cmm));
+                }
+                _repository.Delete(leadEntity);
+                
+            }*/
         }
 
         public bool Exist(int id)

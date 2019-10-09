@@ -1,0 +1,72 @@
+﻿comments ===============
+
+		[Required]
+        public int UserId { get; set; }
+
+        [Required]
+        public int LeadId { get; set; }
+
+        [Required]
+        [StringLength(150, MinimumLength = 5)]
+        public string Text { get; set; }
+
+        [Required]
+        [Range(0, 1)]
+        public int Active { get; set; }
+
+        [Required]
+        public System.DateTime Createdat { get; set; }
+
+Leads ======================================================
+
+ [Required]
+        public int UserId { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [MaxLength(11)]
+        public string Phone { get; set; }
+
+        [Required]
+        public string Course { get; set; }
+
+        [Required]
+        [StringLength(20, MinimumLength = 2)]
+        public string Town { get; set; }
+
+        [Required]
+        [StringLength(80, MinimumLength = 5)]
+        public string Address { get; set; }
+
+        [Required]
+        [Range(0, 1)]
+        public int Active { get; set; }
+
+        [Required]
+        public System.DateTime Createdat { get; set; }
+
+Users =====================================================================
+
+[Required]
+        public string Name { get; set; }
+
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(15, MinimumLength = 4)]
+        public string Password { get; set; }
+
+        [Required]
+        [Range(0, 1)]
+        public int Active { get; set; }
+
+        [Required]
+        public System.DateTime Createdat { get; set; }

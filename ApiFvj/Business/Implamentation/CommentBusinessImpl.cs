@@ -33,9 +33,13 @@ namespace ApiFvj.Business.Implamentation
             return idList;
         }
 
-        public void Delete(int id)
+        public void Delete(List<CommentVO> itens)
         {
-            _repository.Delete(id);
+            foreach (CommentVO comment in itens)
+            {
+                var commentEntity = _converter.Parse(comment);
+                _repository.Delete(commentEntity);
+            }
         }
 
         public bool Exist(int id)
@@ -45,7 +49,16 @@ namespace ApiFvj.Business.Implamentation
 
         public List<CommentVO> FindAll()
         {
-            return _converter.Parse(_repository.FindAll());
+            List<CommentVO> listComments = new List<CommentVO>();
+            var comments =  _converter.Parse(_repository.FindAll());
+            foreach (CommentVO cmm in comments)
+            {
+                if (cmm.active != 0)
+                {
+                    listComments.Add(cmm);
+                }
+            }
+            return listComments;
         }
 
         public CommentVO FindById(int Id)
