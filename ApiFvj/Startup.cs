@@ -16,7 +16,7 @@ namespace ApiFvj
         {
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
-                AccessTokenExpireTimeSpan = TimeSpan.FromHours(1),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(365),
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new Microsoft.Owin.PathString("/api/token"),
                 Provider = new OAuthProvider()

@@ -76,17 +76,21 @@ namespace ApiFvj.Business.Implamentation
 
         public void Delete(List<LeadVO> itens)
         {
-            /*foreach (LeadVO lead in itens)
+            foreach (LeadVO lead in itens)
             {
                 var leadEntity = _converter.Parse(lead);
                 var listComments = _comments.FindAll();
                 foreach (CommentVO cmm in listComments)
                 {
-                    _repositoryComment.Delete(_converterComments.Parse(cmm));
+                    if (cmm.LeadId == lead.ExternId)
+                    {
+                        cmm.active = 0;
+                        _repositoryComment.Delete(_converterComments.Parse(cmm));
+                    }
                 }
                 _repository.Delete(leadEntity);
                 
-            }*/
+            }
         }
 
         public bool Exist(int id)

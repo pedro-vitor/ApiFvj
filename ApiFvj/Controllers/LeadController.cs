@@ -67,7 +67,6 @@ namespace ApiFvj.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete]
-        [Route("{id}")]
         [SwaggerResponse(204)]
         [SwaggerResponse(400)]
         [SwaggerResponse(401)]
