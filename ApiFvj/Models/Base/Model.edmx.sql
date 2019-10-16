@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/09/2019 14:27:54
+-- Date Created: 10/16/2019 20:27:56
 -- Generated from EDMX file: C:\Users\DAVI\Desktop\Projects\ApiFvj\ApiFvj\ApiFvj\Models\Base\Model.edmx
 -- --------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE [dbo].[Leads] (
     [Name] nvarchar(80)  NOT NULL,
     [Email] nvarchar(80)  NOT NULL,
     [Phone] nvarchar(11)  NOT NULL,
-    [Course] nvarchar(20)  NOT NULL,
+    [Course] nvarchar(60)  NOT NULL,
     [Town] nvarchar(20)  NOT NULL,
     [Address] nvarchar(80)  NOT NULL,
     [Active] int  NOT NULL,

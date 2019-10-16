@@ -42,7 +42,7 @@
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="11" />
-    <Property Name="Course" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Course" Type="nvarchar" Nullable="false" MaxLength="60" />
     <Property Name="Town" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="Active" Type="int" Nullable="false" />
@@ -139,7 +139,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="80" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="80" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="11" />
-          <Property Name="Course" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="Course" Type="String" Nullable="false" MaxLength="60" />
           <Property Name="Town" Type="String" Nullable="false" MaxLength="20" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="80" />
           <Property Name="Active" Type="Int32" Nullable="false" />

@@ -13,8 +13,9 @@ namespace ApiFvj.Models.Base
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Comment : BaseEntity
+    public partial class Comment
     {
+
         [Required]
         public int UserId { get; set; }
 
@@ -31,7 +32,7 @@ namespace ApiFvj.Models.Base
 
         [Required]
         public System.DateTime Createdat { get; set; }
-
+    
         public virtual User User { get; set; }
         public virtual Lead Lead { get; set; }
     }
