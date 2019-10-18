@@ -36,6 +36,7 @@ namespace ApiFvj.Models.Base
         public string Phone { get; set; }
 
         [Required]
+        [MaxLength(60)]
         public string Course { get; set; }
 
         [Required]

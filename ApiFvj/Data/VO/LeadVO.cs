@@ -22,6 +22,7 @@ namespace ApiFvj.Data.VO
         public string numberphone { get; set; }
 
         [Required]
+        [MaxLength(60)]
         public string desiredcourse { get; set; }
 
         [Required]
