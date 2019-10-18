@@ -13,7 +13,7 @@ namespace ApiFvj.Models.Base
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Comment
+    public partial class Comment : BaseEntity
     {
 
         [Required]
