@@ -27,6 +27,7 @@ namespace ApiFvj.Repository.Generic
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
             return listT;
