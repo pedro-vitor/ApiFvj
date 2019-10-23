@@ -28,7 +28,7 @@ namespace ApiFvj.Controllers
         [SwaggerResponse(401)]
         public IHttpActionResult Get()
         {
-             return Json(new { Leads = _repository.FindAll(), Deleted = _repository.DeletedLeads() });
+             return Json(new { Result = _repository.FindAll(), Deleted = _repository.DeletedLeads() });
         }
 
         // GET api/<controller>/5
