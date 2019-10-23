@@ -13,5 +13,6 @@ namespace ApiFvj.Business
         void Delete(List<CommentVO> id);
 
         bool Exist(int id);
+        List<int> DeletedLeads();
     }
 }

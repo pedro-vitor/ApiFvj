@@ -81,5 +81,19 @@ namespace ApiFvj.Business.Implamentation
             }
             return idList;
         }
+
+        public List<int> DeletedLeads()
+        {
+            List<int> ids = new List<int>();
+            var users = _converter.Parse(_repository.FindAll());
+            foreach (UserVO usr in users)
+            {
+                if (usr.active == 0)
+                {
+                    ids.Add(usr.ExternId);
+                }
+            }
+            return ids;
+        }
     }
 }
