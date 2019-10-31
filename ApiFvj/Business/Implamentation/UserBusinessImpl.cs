@@ -54,10 +54,7 @@ namespace ApiFvj.Business.Implamentation
             var leads = _converter.Parse(_repository.FindAll());
             foreach (UserVO usr in leads)
             {
-                if (usr.active != 0)
-                {
-                    listUsers.Add(usr);
-                }
+                listUsers.Add(usr);
             }
             return listUsers;
         }
