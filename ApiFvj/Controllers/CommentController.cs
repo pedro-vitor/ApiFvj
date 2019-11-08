@@ -6,9 +6,11 @@ using ApiFvj.Models;
 using Swashbuckle.Swagger.Annotations;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ApiFvj.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Authorize]
     [RoutePrefix("api/Comment")]
     public class CommentController : ApiController

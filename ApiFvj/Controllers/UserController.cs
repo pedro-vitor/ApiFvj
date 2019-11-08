@@ -5,9 +5,11 @@ using ApiFvj.Models;
 using Swashbuckle.Swagger.Annotations;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ApiFvj.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
