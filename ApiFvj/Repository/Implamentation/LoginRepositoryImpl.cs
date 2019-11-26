@@ -12,5 +12,9 @@ namespace ApiFvj.Repository.Implamentation
             return _context.Users.Where(x => x.Email == email && x.Password == password && x.Active != 0).FirstOrDefault();
         }
 
+        public User FindByLoginAdmin(string email, string password)
+        {
+            return _context.Users.Where(x => x.Email == email && x.Password == password && x.Active != 0 && x.Permission == 1).FirstOrDefault();
+        }
     }
 }

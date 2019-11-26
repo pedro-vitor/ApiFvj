@@ -11,8 +11,7 @@ namespace ApiFvj.Models.Base
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User : BaseEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,24 +20,14 @@ namespace ApiFvj.Models.Base
             this.Lead = new HashSet<Lead>();
             this.Comment = new HashSet<Comment>();
         }
-
-        [Required]
+    
+        public int Id { get; set; }
         public string Name { get; set; }
-
-        [Required]
-        [EmailAddress]
         public string Email { get; set; }
-
-        [Required]
-        [StringLength(15, MinimumLength = 4)]
         public string Password { get; set; }
-
-        [Required]
-        [Range(0, 1)]
         public int Active { get; set; }
-
-        [Required]
         public System.DateTime Createdat { get; set; }
+        public Nullable<int> Permission { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lead> Lead { get; set; }

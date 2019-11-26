@@ -17,5 +17,10 @@ namespace ApiFvj.Business.Implamentation
         {
             return _repository.FindByLogin(email,password);
         }
+
+        public User FindByLoginAdmin(string email, string password)
+        {
+            return _repository.FindByLoginAdmin(email, password);
+        }
     }
 }

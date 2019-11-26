@@ -15,7 +15,7 @@ namespace ApiFvj
             // Web API configuration and services
 
             // Web API routes
-            config.EnableCors();
+            // config.EnableCors();
             config.MapHttpAttributeRoutes();
 
 
@@ -23,6 +23,7 @@ namespace ApiFvj
                 name: "SwaggerApi",
                 routeTemplate: "api/token"
             );
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
