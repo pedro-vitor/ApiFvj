@@ -32,7 +32,7 @@
     <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="Active" Type="int" Nullable="false" />
     <Property Name="Createdat" Type="datetime" Nullable="false" />
-    <Property Name="Permission" Type="int" Nullable="true" />
+    <Property Name="Permission" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Leads">
     <Key>
@@ -129,7 +129,7 @@
           <Property Name="Createdat" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Lead" Relationship="fvj_dbModel.UserLead" FromRole="User" ToRole="Lead" />
           <NavigationProperty Name="Comment" Relationship="fvj_dbModel.UserComment" FromRole="User" ToRole="Comment" />
-          <Property Name="Permission" Type="Int32" />
+          <Property Name="Permission" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Lead">
           <Key>

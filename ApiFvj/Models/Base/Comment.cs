@@ -14,7 +14,7 @@ namespace ApiFvj.Models.Base
     
     public partial class Comment : BaseEntity
     {
-        // public int Id { get; set; }
+        ///public int Id { get; set; }
         public int UserId { get; set; }
         public int LeadId { get; set; }
         public string Text { get; set; }

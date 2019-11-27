@@ -24,6 +24,11 @@ namespace ApiFvj
                 routeTemplate: "api/token"
             );
 
+            config.Routes.MapHttpRoute(
+                name: "TokenAdmin",
+                routeTemplate: "api/tokenadmin"
+            );
+
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

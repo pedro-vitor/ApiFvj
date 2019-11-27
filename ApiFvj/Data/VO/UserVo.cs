@@ -25,5 +25,7 @@ namespace ApiFvj.Data.VO
         [Required]
         public System.DateTime createdat { get; set; }
         public int Updated { get; set; }
+
+        public int Permission { get; set; }
     }
 }

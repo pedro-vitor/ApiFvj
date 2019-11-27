@@ -18,7 +18,8 @@ namespace ApiFvj.Data.Converters
                 Email = origin.email,
                 Password = origin.password,
                 Active = origin.active,
-                Createdat = origin.createdat
+                Createdat = origin.createdat,
+                Permission = origin.Permission
             };
         }
 
@@ -38,7 +39,8 @@ namespace ApiFvj.Data.Converters
                 email = origin.Email,
                 password = origin.Password,
                 active = origin.Active,
-                createdat = origin.Createdat
+                createdat = origin.Createdat,
+                Permission = origin.Permission
             };
         }
 
@@ -53,7 +55,8 @@ namespace ApiFvj.Data.Converters
                 email = origin.Email,
                 password = origin.Password,
                 active = origin.Active,
-                createdat = origin.Createdat
+                createdat = origin.Createdat,
+                Permission = origin.Permission
             };
         }
 

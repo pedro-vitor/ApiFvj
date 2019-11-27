@@ -197,6 +197,7 @@
     <Compile Include="Models\Base\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="OAuthProviderAdmin.cs" />
     <Compile Include="OAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Generic\GenericRepository.cs" />

@@ -21,13 +21,13 @@ namespace ApiFvj.Models.Base
             this.Comment = new HashSet<Comment>();
         }
     
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public int Active { get; set; }
         public System.DateTime Createdat { get; set; }
-        public Nullable<int> Permission { get; set; }
+        public int Permission { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lead> Lead { get; set; }
